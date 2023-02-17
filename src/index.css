@@ -1,13 +1,40 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sans-Variable';
+  src: url('./fonts/GeneralSans-Variable.woff2') format('woff2');
+       font-weight: 200 700;
+       font-display: swap;
+       font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'RecklessRegular';
+  src: url('./fonts/RecklessRegular.ttf') format('truetype');
+       font-display: swap;
+       font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cotta';
+  src: url('./fonts/Cotta\ Free.otf') format('opentype');
+       font-display: swap;
+       font-style: normal;
+}
+
+html {
+  background-color: #082115;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  line-height: 0.9;
+}
+
+p {
+  font-family: Sans-Variable;
+  font-weight: 470;
 }
