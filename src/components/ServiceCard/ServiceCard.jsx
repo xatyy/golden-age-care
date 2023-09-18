@@ -1,28 +1,31 @@
 import React from 'react'
-import Logo from '../Logo/Logo';
 import Medical from '../Medical/Medical';
 import Heart from '../Heart/Heart';
 import Food from '../Food/Food';
 import Puzzle from '../Puzzle/Puzzle';
 const services = [
     {
+        id: 1,
         title: 'Îngrijire și servicii medicale',
-        body: 'În momentul cazării, fiecărui senior i se realizează o evaluare de către un cadru medical și îi este creat un dosar unde îi sunt luate în evidență afecțiunile și problemele medicale sau psihologice. Ulterior, rezidenții beneficiază de vizite regulate ale medicului și primesc toată asistența necesară.',
+        body: 'Beneficiarilor li se va face o evaluare inițială în momentul cazării pe baza căreia sunt luate în considerare planul de tratament și consultațiile specializate de care are nevoie pe durata șederii. Toți rezidenții beneficiază de consultații regulate și posibilitatea de a apela la servicii medicale suplimentare oferite de cadre medicale partenere: fizioterapie, kinetoterapie, consulturi psihiatrice sau ședințe cu un psiholog.',
         icon: <Medical className="h-20" fill='#FFD484' />
     },
     {
+        id: 2,
         title: 'Viața la Golden Age Care',
-        body: 'Confortul și bunăstarea seniorilor noștri sunt întotdeauna pe primul plan. Mai mult decât un cămin de bătrâni lângă București, Perla Senior devine noua casă pentru persoanele pe care avem onoarea de a le îngriji și, de aceea, pentru noi este esențial ca mediul să fie mereu unul plăcut, iar decorul să fie primitor, cald și liniștitor.',
+        body: 'Dorim să oferim confortul și sentimentul de “acasă” și de aceea vrem să îi primim pe seniori într-un mediu călduros și plăcut. Camerele noastre sunt decorate și finisate într-un stil primitor iar spațiile comune de vizită, restaurantul și biblioteca oferă un loc confortabil pentru a petrece timpul liber. Avem deasemenea un spațiu generos exterior amenajat cu parc, foișor și curte interioară pentru plimbări și activități exterioare.',
         icon: <Heart className="h-20" fill='#FFD484' />
     },
     {
+        id: 3,
         title: 'Alimentație personalizată',
-        body: 'Alimentația seniorilor este atent urmărită și preparată după nevoile specifice vârstei sau afecțiunilor fiecăruia în parte, în propria noastră bucătărie. Rezidenții căminului de bătrâni Perla Senior Snagov primesc zilnic trei mese și două gustări, din alimente proaspete și de bună calitate, personalizate în același timp după recomandările sau interdicțiile medicale.',
+        body: 'În cadrul clădirii avem propria bucătărie și sală de mese și împreună cu indicațiile nutriționistului ne vom asigura că toți beneficiarii se bucură de o alimentație nutritivă, calitativă și gustoasă. Vom respecta bineînțeles și recomandările și interdicțiile medicului și vom oferi alternative personalizate.',
         icon: <Food className="h-20" fill='#FFD484' />
     },
     {
+        id: 4,
         title: 'Activități pentru seniori',
-        body: 'Zonele destinate activităților recreative, atât la interior, cât și la exterior, sunt amenajate pentru a încuraja interacțiunea și a spori sentimentul de apartenență la grup al seniorilor, oferindu-le în același timp spațiu pentru activități sau relaxare individuală. Organizăm în căminul de bătrâni proiecții de film, serate, aniversări și petreceri, precum și vizite la obiective din zonă, pentru seniorii care sunt apți pentru aceste activități.',
+        body: 'În cadrul căminului organizăm activități recreative precum jocuri de comunicare și cunoaștere, jocuri de dexteritate, seri de film, serate, serbarea aniversărilor, jocuri de societate și excursii pentru cei apți. Oferim deasemenea multe spații potrivite pentru activități individuale și relaxare.',
         icon: <Puzzle className="h-20" fill='#FFD484' />
     }
 ]
@@ -30,9 +33,9 @@ const services = [
 const ServiceCard = () => {
     return(
         <div className='flex justify-center'>
-            <div className='grid grid-cols-1 lg:px-18 px-2 md:grid-cols-2 2xl:grid-cols-2 gap-10 lg:gap-24'>
+            <div className='grid grid-cols-1 lg:px-18 px-2 md:grid-cols-2 2xl:grid-cols-2 gap-10 xl:gap-24 lg:gap-16'>
                 {services.map((ser) => (
-                     <div className='h-auto lg:w-[530px] w-full border-[#153626] border-[3px]  rounded-2xl'>
+                     <div key={ser.id} className='h-auto lg:w-[470px] xl:w-[520px] w-full border-[#153626] border-[3px]  rounded-2xl'>
                          <div className="flex items-center justify-center space-x-6 lg:px-20 px-10">
                          <p className='text-gold font-sans font-medium py-7 text-3xl max-w-sm'>{ser.title}</p>
                         {ser.icon}

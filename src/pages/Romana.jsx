@@ -1,9 +1,7 @@
-import logo from '../logo.svg';
 import "../index.css";
 import Gallery from '../components/Gallery/Gallery';
 import CareIcon from '../components/CareIcon/CareIcon';
 import ServiceCard from '../components/ServiceCard/ServiceCard';
-import { ReactLenis } from '@studio-freight/react-lenis';
 import { useLayoutEffect } from 'react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
@@ -164,6 +162,54 @@ function Romana() {
         }
       }
     ) 
+
+    if(window.innerWidth < 800){
+
+
+      gsap.fromTo(
+        element.querySelector(".link"),
+        {
+          opacity: "0%",
+          x:"40px"
+        },
+        {
+          x:"0px",
+          opacity: "100%",
+          scrollTrigger: {
+            trigger: element.querySelector(".first"),
+            start: "top end",
+            end: "+=900",
+          }
+        }
+
+      );
+
+
+
+      gsap.fromTo(
+        element.querySelector(".logo"),
+        {
+          opacity: "100%",
+          x: "30px",
+        },
+        {
+          opacity: "0%",
+          position: "absolute",
+          x:"0px",
+          display: "none",
+          scrollTrigger: {
+            trigger: element.querySelector(".first"),
+            start: "top end",
+            end: "+=300",
+          }
+        }
+
+      )
+      
+
+
+  }
+
      
   }
 
@@ -173,10 +219,11 @@ function Romana() {
       <div className='fixed z-40 w-full'>
         <div className=" mt-4 headertop lg:px-9 px-2 justify-center ">
               <div className="p-4 w-full header lg:rounded-[30px] rounded-[25px] border-2 border-opacity-10 items-center flex flex-row bg-pine bg-opacity-40 backdrop-blur-lg border-white">
-                  <div>
-                      <Logo className="px-6 lg:px-10 h-16"/>
+                  <div className='flex space-x-2 items-center'>
+                      <Logo className=" lg:ml-7 ml-2 h-16"/>
+                      <p className='logo   font-cotta text-xl w-64 text-gold'>Golden Age Care</p>
                   </div>
-                  <div className='ml-auto flex flex-row lg:space-x-8 lg:px-10 space-x-3'>
+                  <div className='ml-auto link flex flex-row lg:space-x-8 lg:px-10 space-x-3'>
                       <p onClick={() => onclickLink2()} className='cursor-pointer font-sans homelink font-medium text-gold'>Acasă</p>
                       <p onClick={() => onclickLink()}   className='cursor-pointer first-letter:font-sans servicelink font-medium text-gold'>Servicii</p>
                       <p onClick={() => onclickLink3()}  className='cursor-pointer font-sans contactlink font-medium text-gold'>Contact</p>
@@ -186,16 +233,19 @@ function Romana() {
           </div>
       </div>
       <div className='space-y-32 py-48'>
-      <section id="home" className='first space-y-32'>
-        <h1 className='motto lg:px-24 text-center font-reckless text-4xl lg:text-[4rem] text-gold'>Atenție. Respect. Siguranță.</h1>
-        <img src='hero.webp'/>
+      <section id="home" className=' home first space-y-32'>
+        <h1 className='motto lg:px-24 text-center font-reckless text-4xl lg:text-[4rem] text-gold'>Grijă. Respect. Comunitate.</h1>
+        <p className='text-gold text-[1.1rem] text-center lg:px-24 px-6'>
+        Golden Age Care, un cămin de îngrijire a seniorilor întemeiat cu scopul de a proteja și îmbunătăți calitatea vieții.
+        </p>
+        <img className="second" src='hero.webp'/>
       </section>
       <section className='space-y-10 gallery'>
-        <h1 className='test1 lg:px-24 px-6 font-reckless text-[4rem] text-gold'>Îngrijire medicală premium și sentimentul de Acasă</h1>
+        <h1 className='test1 lg:px-24 px-6 font-reckless text-[4rem] text-gold'>Îngrijire premium și sentimentul de Acasă</h1>
         <div>
         <CareIcon fill='#153626' className='-z-50 lg:h-64 h-32 right-1 lg:mt-0 -mt-28 lg:right-1 overflow-hidden absolute'/>
           <p className='text-gold text-[1.1rem] text-center lg:px-24 px-6'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dapibus nisi a euismod finibus. Praesent nec viverra libero, ut tincidunt orci. Ut imperdiet dictum dui, imperdiet maximus magna iaculis non. Suspendisse vestibulum dolor pharetra bibendum feugiat. Suspendisse viverra quis libero ut lobortis. Proin malesuada tempus gravida. Morbi fringilla iaculis ligula.
+          În cadrul căminului de bătrâni Golden Age Care îi invităm pe rezidenții noștrii să participe într-o comunitate unde le oferim o îngrijire atentă și profesională într-o clădire nouă, construită specific să corespundă cu nevoile acestora. Ne dorim ca toți beneficiarii noștrii să se bucure de grija și respectul unui centru de îngrijire de top fară a renunța la sentimentul de “acasă”.
           </p>
         </div>
       </section>
@@ -209,7 +259,7 @@ function Romana() {
       <section id="contact" className='contact space-y-16'>
         <div className='space-y-6'>
         <h1 className='test1 px-6 lg:px-24 font-reckless text-[4rem] text-gold'>Solicită o vizită</h1>
-        <p className='text-medium px-6 font-sans lg:px-24 text-center text-gold text-[1.1rem]'>Știm că alegerea unui cămin de bătrâni este o decizie grea. De aceea, înainte de a vă cere să ne acordați încrederea dumneavoastră, vă invităm să ne vizitați, pentru a ne cunoaște și pentru a experimenta direct stilul de viață Golden Age Care. Completați formularul de mai jos și vă vom contacta în cel mai scurt timp pentru a programa vizionarea la căminul de bătrâni din Săcălaz.
+        <p className='text-medium px-6 font-sans lg:px-24 text-center text-gold text-[1.1rem]'>Nu trebuie să te lași convins de niște fotografii sau cuvinte. Vrem să iți câștigăm încrederea și te invităm să experimentezi stilul de viață pe care îl oferim în cadrul căminului Golden Age Care. Programează-te pentru o vizită completând formularul de mai jos.
 Vă așteptăm cu drag.</p>
         </div>
       

@@ -11,19 +11,22 @@ const Footer = () => {
                     <Logo className="h-24" />
                     <p className='font-cotta text-3xl text-gold'>Golden Age Care</p>
                 </div>
-                <div className='row-start-2 py-6'>
+                <div className='row-start-2 py-2 space-y-1'>
                 <div className='text-gold text-2xl font-medium row-start-2 flex items-center'>
-                    hello@goldenagecare.ro <Arrow />
+                    <a  className='flex items-center' href='mailto:office@goldenagecare.ro'>office@goldenagecare.ro <Arrow /></a>
+                </div>
+                <div className='text-gold text-2xl font-medium row-start-2 flex items-center'>
+                    <a  className='flex items-center' href='tel:+40733697231'>+40 733 697 231 <Arrow /></a>
                 </div>
                 <div className='text-gold text-2xl w-full font-medium row-start-3 flex items-center'>
-                    Strada Muzelor, Nr.2, Săcălaz<Arrow />
+                <a className='flex items-center' target='_blank' href='https://goo.gl/maps/AUigHMpHu43W3zE2A'>Strada Muzelor, Nr.2, Săcălaz <Arrow /> </a>
                 </div>
                 </div>
-                <div className='col-start-1 row-start-5 text-gold'>
+                <div className='col-start-1 row-start-6 text-gold'>
                         Copyright {year} Golden Age Care
                         </div>
-                <div className='row-start-3 col-start-1 lg:row-start-1 lg:col-start-4 lg:col-span-full'>
-                <iframe className='rounded-xl' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.4286836248425!2d21.085773915291174!3d45.76259842150402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474542401de60f4d%3A0xbdee711aaec82e29!2sStr.%20Muzelor!5e0!3m2!1sen!2sro!4v1676542961808!5m2!1sen!2sro" width="280" height="280" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div className='row-start-3 py-24 lg:py-0 col-start-1 lg:row-start-1 lg:col-start-4 lg:col-span-full'>
+                <iframe className='rounded-xl' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.4286836248425!2d21.085773915291174!3d45.76259842150402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474542401de60f4d%3A0xbdee711aaec82e29!2sStr.%20Muzelor!5e0!3m2!1sen!2sro!4v1676542961808!5m2!1sen!2sro" width="280" height="280" style={{border:0}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
            

@@ -1,40 +1,79 @@
-import React from 'react'
-import Logo from '../Logo/Logo';
-import gsap from 'gsap';
-import { useRef } from 'react';
+import React, { useState } from 'react'
+import Lightbox from 'react-spring-lightbox'
 
 const img = [
-    'gallery1.webp',
-    'gallery5.webp',
-    'gallery3.webp',
-    'gallery4.webp',
-    'gallery2.webp',
-    'gallery6.webp'
+    {
+        id: 0,
+        src: 'gallery1.webp',
+    },
+    {
+        id: 1,
+        src: 'gallery5.webp'
+    },
+    {
+        id: 2,
+        src: 'gallery3.webp'
+    },
+    {
+        id: 3,
+        src: 'gallery4.webp'
+    },
+    {
+        id: 4,
+        src: 'gallery2.webp'
+    },
+    {
+        id: 5,
+        src: 'gallery6.webp'
+    },
 ]
 
 const Gallery = () => {
 
-    const handleClick = ({ currentTarget }) => {
+    const [isOpen, setOpen] = useState(false);
+    const [currentImageIndex, setCurrentIndex] = useState(2);
 
-        gsap.to(currentTarget,{
-            x:0,
-            y:0,
-            transformOrigin: "50% 50%",
-            width: '100vh',
-            height: '100vh'
-        })
-      }
+    const gotoNext = () => {
+        currentImageIndex + 1 < img.length && setCurrentIndex(currentImageIndex + 1);
+    }
+
+    const gotoPrevious = () => {
+        currentImageIndex > 0  && setCurrentIndex(currentImageIndex - 1);
+    }
+
+
 
     return(
         <div className='gallery flex justify-center'>
-            <div className='grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-3 gap-4'>
-                {img.map((img) => (
-                     <div onClick={handleClick} className='h-[250px] w-[350px] overflow-hidden bg-slate-50 rounded-xl'>
-                         <img width={400} className="overflow-cover scale-[1.2]" src={img} />
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4'>
+                {img.map((img, index) => (
+                     <div key={img.id} onClick={() => {
+                        setCurrentIndex(index);
+                        console.log(currentImageIndex);
+                        setOpen(true);
+                     }} className='h-[250px] w-[350px] overflow-hidden bg-slate-50 rounded-xl'>
+                         <img  width={400} className="overflow-cover scale-[1.2]" src={img.src} />
                      </div>
                 ))}
+              
             </div>
+            <Lightbox
+        currentIndex={currentImageIndex}
+        isOpen={isOpen}
+        onNext={gotoNext}
+        onPrev={gotoPrevious}
+        onClose={() => setOpen(false)}
+        images={img} 
+        pageTransitionConfig={{
+            from: { transform: "scale(0.75)", opacity: 0 },
+            enter: { transform: "scale(1)", opacity: 1 },
+            leave: { transform: "scale(0.75)", opacity: 0 },
+            config: { mass: 1, tension: 320, friction: 32 }
+            }}
+        style={{backdropFilter: "blur(8px)", webkitBackdropFilter: "blur(8px)", backgroundColor: "rgba(0, 0, 0, .8)"}}
+        />
         </div>
+       
     )
 }
 
