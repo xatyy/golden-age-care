@@ -12,6 +12,7 @@ import Footer from '../components/Footer/Footer';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import En from '../components/En/En';
 import { Link } from 'react-router-dom';
+import { SwipeCarousel } from "../components/Carousel/SwipeCarousel";
 
 function Romana() {
   const ref = useRef(null);
@@ -236,8 +237,11 @@ function Romana() {
         <p className='text-gold text-[1.1rem] text-center lg:px-24 px-6'>
         Golden Age Care, a senior care home founded with the aim of protecting and improving the quality of life.
         </p>
-        <img src='hero.webp'/>
+       {/* <img src='hero.webp'/> */}
       </section>
+      </div>
+      <SwipeCarousel />
+      <div className='space-y-32 py-48'>
       <section className='space-y-10 gallery'>
         <h1 className='test1 lg:px-24 px-6 font-reckless text-[4rem] text-gold'>Premium care and the feeling of a Home.</h1>
         <div>

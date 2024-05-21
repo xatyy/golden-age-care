@@ -12,6 +12,7 @@ import Footer from '../components/Footer/Footer';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import Ro from '../components/Ro/Ro';
 import { Link } from 'react-router-dom';
+import { SwipeCarousel } from "../components/Carousel/SwipeCarousel";
 
 function Romana() {
   const ref = useRef(null);
@@ -238,8 +239,13 @@ function Romana() {
         <p className='text-gold text-[1.1rem] text-center lg:px-24 px-6'>
         Golden Age Care, un cămin de îngrijire a seniorilor întemeiat cu scopul de a proteja și îmbunătăți calitatea vieții.
         </p>
-        <img className="second" src='hero.webp'/>
+        
+       { /*<img className="second" src='hero.jpg'/> */ }
+        
       </section>
+      </div>
+      <SwipeCarousel />
+      <div className='space-y-32 py-48'>
       <section className='space-y-10 gallery'>
         <h1 className='test1 lg:px-24 px-6 font-reckless text-[4rem] text-gold'>Îngrijire premium și sentimentul de Acasă</h1>
         <div>

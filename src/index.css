@@ -38,3 +38,10 @@ p {
   font-family: Sans-Variable;
   font-weight: 470;
 }
+
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
